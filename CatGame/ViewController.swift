@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     let buttonSize: CGFloat = 150
     
     //MARK: - lifecycle funcs
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         self.createButton()
     }
     
@@ -36,10 +36,10 @@ class ViewController: UIViewController {
     }
     
     func setRandomPosition() {
-        let topEdge = 50
-        let bottomEdge = Int(self.view.frame.height - button.frame.size.height) - 15
+        let topEdge = Int(self.view.safeAreaInsets.top)
+        let bottomEdge = Int(self.view.frame.height - button.frame.size.height - self.view.safeAreaInsets.bottom)
         let rightEdge = Int(self.view.frame.width - button.frame.size.width)
-        let leftEdge = 0
+        let leftEdge = Int(self.view.safeAreaInsets.left)
         button.frame.origin.x = CGFloat(Int.random(in: leftEdge..<rightEdge))
         button.frame.origin.y = CGFloat(Int.random(in: topEdge..<bottomEdge))
     }
