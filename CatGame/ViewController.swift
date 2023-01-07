@@ -25,6 +25,10 @@ class ViewController: UIViewController {
         button.backgroundColor = UIColor.randomColor
     }
     
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
     //MARK: - flow funcs
     private func createButton() {
         button.backgroundColor = UIColor.randomColor
